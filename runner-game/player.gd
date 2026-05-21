@@ -28,10 +28,13 @@ func set_state(new_state):
 	state = new_state
 
 func _physics_process(delta: float) -> void:
+	
+	# Movement
 	var direction := Input.get_axis("left", "right")
 	velocity.x = lerp(velocity.x, direction * turning_speed, 0.08)
 	rotation = deg_to_rad(velocity.x) * 0.05
 	move_and_slide()
+	
 	if Input.is_action_pressed("jump") and state == States.running and !just_jumped:
 		set_state(States.jumping)
 		just_jumped = true
