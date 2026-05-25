@@ -46,6 +46,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" unique_id=335185556]
+collision_mask = 0
 script = ExtResource("1_onrkg")
 turning_speed = 504
 jump_force = 1.0
@@ -59,10 +60,13 @@ shape = SubResource("RectangleShape2D_onrkg")
 scale = Vector2(0.625, 0.51587296)
 texture = ExtResource("1_4flbx")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1787108608]
+[node name="HoleArea" type="Area2D" parent="." unique_id=1787108608]
+collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1493220892]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HoleArea" unique_id=1493220892]
 shape = SubResource("RectangleShape2D_i3pqv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1182868893]
 libraries/ = SubResource("AnimationLibrary_i3pqv")
+
+[connection signal="area_entered" from="HoleArea" to="." method="_on_area_2d_area_entered"]

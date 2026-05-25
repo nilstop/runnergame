@@ -1,8 +1,19 @@
 [gd_scene format=3 uid="uid://cdq6t5u1mvpyf"]
 
 [ext_resource type="PackedScene" uid="uid://btk50b4tilrvh" path="res://player.tscn" id="1_f3sb7"]
+[ext_resource type="Script" uid="uid://de2mcns8ys825" path="res://spawner.gd" id="2_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://dcnmluhmjgyu2" path="res://Hole/hole.tscn" id="3_tlwt5"]
 
 [node name="World" type="Node2D" unique_id=557375940]
 
+[node name="Spawner" type="Node2D" parent="." unique_id=1675968327]
+script = ExtResource("2_fj7yv")
+hole = ExtResource("3_tlwt5")
+
+[node name="Timer" type="Timer" parent="Spawner" unique_id=76258176]
+autostart = true
+
 [node name="Player" parent="." unique_id=335185556 instance=ExtResource("1_f3sb7")]
-position = Vector2(288, 515)
+position = Vector2(288, 624)
+
+[connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
