@@ -9,6 +9,7 @@ extends CharacterBody2D
 
 # References
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var icon: Sprite2D = $Icon
 
 enum States {running, jumping}
 
@@ -32,7 +33,7 @@ func _physics_process(delta: float) -> void:
 	# Movement
 	var direction := Input.get_axis("left", "right")
 	velocity.x = lerp(velocity.x, direction * turning_speed, 0.08)
-	rotation = deg_to_rad(velocity.x) * 0.05
+	icon.rotation = deg_to_rad(velocity.x) * 0.05
 	move_and_slide()
 	
 	if Input.is_action_pressed("jump") and state == States.running and !just_jumped:

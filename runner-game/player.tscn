@@ -46,7 +46,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" unique_id=335185556]
-collision_mask = 0
+collision_mask = 8
 script = ExtResource("1_onrkg")
 turning_speed = 504
 jump_force = 1.0
@@ -56,10 +56,6 @@ jump_scale_amp = 0.05
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=361136176]
 shape = SubResource("RectangleShape2D_onrkg")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=956569711]
-scale = Vector2(0.625, 0.51587296)
-texture = ExtResource("1_4flbx")
-
 [node name="HoleArea" type="Area2D" parent="." unique_id=1787108608]
 collision_mask = 2
 
@@ -68,5 +64,9 @@ shape = SubResource("RectangleShape2D_i3pqv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1182868893]
 libraries/ = SubResource("AnimationLibrary_i3pqv")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1787197086]
+scale = Vector2(0.625, 0.515625)
+texture = ExtResource("1_4flbx")
 
 [connection signal="area_entered" from="HoleArea" to="." method="_on_area_2d_area_entered"]

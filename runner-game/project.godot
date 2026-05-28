@@ -21,8 +21,8 @@ Global="*uid://de0afvrknxxnc"
 
 [display]
 
-window/size/viewport_width=576
-window/size/viewport_height=810
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
@@ -54,7 +54,9 @@ jump={
 [layer_names]
 
 2d_physics/layer_1="player"
-2d_physics/layer_2="hole"
+2d_physics/layer_2="hazard"
+2d_physics/layer_3="obstaclewall"
+2d_physics/layer_4="wall"
 
 [physics]
 

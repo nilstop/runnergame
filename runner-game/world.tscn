@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://de2mcns8ys825" path="res://spawner.gd" id="2_fj7yv"]
 [ext_resource type="PackedScene" uid="uid://dcnmluhmjgyu2" path="res://Hole/hole.tscn" id="3_tlwt5"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tlwt5"]
+size = Vector2(280, 1148)
+
 [node name="World" type="Node2D" unique_id=557375940]
 
 [node name="Spawner" type="Node2D" parent="." unique_id=1675968327]
@@ -13,7 +16,64 @@ hole = ExtResource("3_tlwt5")
 [node name="Timer" type="Timer" parent="Spawner" unique_id=76258176]
 autostart = true
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=570985100]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 195.0
+offset_top = -204.0
+offset_right = 1085.0
+offset_bottom = 944.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+color = Color(0.38321832, 0.38321835, 0.38321832, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1386999060]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.0
+offset_top = -204.0
+offset_right = 195.0
+offset_bottom = 944.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+color = Color(0.279, 0.2895, 0.3, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=189760043]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1085.0
+offset_top = -204.0
+offset_right = 1343.0
+offset_bottom = 944.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+color = Color(0.279, 0.2895, 0.3, 1)
+
 [node name="Player" parent="." unique_id=335185556 instance=ExtResource("1_f3sb7")]
-position = Vector2(288, 624)
+position = Vector2(640, 645)
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=1558719840]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=622495777]
+position = Vector2(55, 370)
+shape = SubResource("RectangleShape2D_tlwt5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=1328507864]
+position = Vector2(1225, 370)
+shape = SubResource("RectangleShape2D_tlwt5")
 
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]

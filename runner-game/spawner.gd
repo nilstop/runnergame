@@ -7,5 +7,5 @@ func _on_timer_timeout() -> void:
 
 func inst(scene):
 	var instance = scene.instantiate()
-	instance.global_position = Vector2(randi_range(200, get_viewport_rect().size.x - 200), -200)
+	instance.global_position = Vector2(randi_range(400, get_viewport_rect().size.x - 400), -200)
 	add_child(instance)
